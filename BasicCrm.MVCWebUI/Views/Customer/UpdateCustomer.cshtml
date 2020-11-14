@@ -1,0 +1,71 @@
+﻿
+@model BasicCrm.MVCWebUI.Models.UpdateCustomerViewModel
+@{
+    ViewData["Title"] = "UpdateCustomer";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Müşteri Güncelle
+            </header>
+            <div class="panel-body">
+                <form method="post" action="/Customer/UpdateCustomer">
+                    <div class="form-group">
+
+
+                        <input type="hidden" class="form-control" name="CustomerID" value="@Model.Customer.CustomerID">
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCompanyName">Müşteri Adı</label>
+                        <input type="text" class="form-control" id="inputCompanyName" name="CompanyName" placeholder="Adı" value="@Model.Customer.CompanyName">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContactName">İlgili Kişi</label>
+                        <input type="text" class="form-control" id="inputContactName" name="ContactName" placeholder="Soyadı" value="@Model.Customer.ContactName">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContactTitle">Ünvan</label>
+                        <input type="text" class="form-control" id="inputContactTitle" name="ContactTitle" value="@Model.Customer.ContactTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Adres</label>
+                        <input type="text" class="form-control" id="inputAddress" name="Address" value="@Model.Customer.Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCountry">Ülke</label>
+                        <input type="text" class="form-control" id="inputCountry" name="Country" value="@Model.Customer.Country">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMail">Mail</label>
+                        <input type="text" class="form-control" id="inputMail" name="Mail" value="@Model.Customer.Mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectCustomerDetail">Rolü</label>
+                        <select class="form-control" id="selectCustomerDetail" name="CustomerDetailID">
+                            @foreach (var item in ViewBag.CustomerDetails)
+                            {
+                                <option value="@item.CustomerDetailID">@item.CustomerType</option>
+                            }
+                        </select>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a href="/Customer/Customers" class="btn btn-danger">İptal</a>
+                </form>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>$("#selectCustomerDetail").val("@Model.Customer.CustomerDetailID");</script>
+
+}
+
+

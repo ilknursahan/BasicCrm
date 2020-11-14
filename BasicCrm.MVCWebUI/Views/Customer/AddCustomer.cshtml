@@ -1,0 +1,59 @@
+﻿
+@model BasicCrm.MVCWebUI.Models.AddCustomerViewModel
+@{
+    ViewData["Title"] = "AddCustomer";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading mb-3">
+                Müşteri Ekle
+            </header>
+            <div class="panel-body">
+
+                <form method="post" action="/Customer/AddCustomer" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleCompanyName">Müşteri Adı</label>
+                        <input type="text" class="form-control" id="exampleCompanyName" name="CompanyName" placeholder="Müşteri Adı">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleContactName">İlgili Kişi</label>
+                        <input type="text" class="form-control" id="exampleContactName" name="ContactName" placeholder="İlgili Kişi">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleContactTitle">Ünvan</label>
+                        <input type="text" class="form-control" id="exampleContactTitle" name="ContactTitle" placeholder="Ünvan">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleAddress">Adres</label>
+                        <input type="text" class="form-control" id="exampleAddress" name="Address" placeholder="Adres">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleMail">Mail</label>
+                        <input type="text" class="form-control" id="exampleMail" name="Mail" placeholder="Mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleCountry">Ülke</label>
+                        <input type="text" class="form-control" id="exampleCountry" name="Country" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleCustomerDetail">Müşteri Rolü</label>
+                        <select class="form-control" id="selectCustomerDetail" name="CustomerDetailID">
+                            @foreach (var item in Model.CustomerDetails)
+                            {
+                                <option value="@item.CustomerDetailID">@item.CustomerType</option>
+                            }
+                        </select>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a href="/Customer/Customers" class="btn btn-danger">İptal</a>
+                </form>
+            </div>
+        </section>
+    </div>
+
+</div>
+

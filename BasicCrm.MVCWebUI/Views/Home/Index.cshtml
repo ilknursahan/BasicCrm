@@ -1,0 +1,43 @@
+﻿@model BasicCrm.MVCWebUI.Models.CustomerListViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>CRM</h1>
+<br />
+<hr />
+<br />
+<h2>Güncel Veriler</h2>
+<br />
+<hr />
+
+<div class="row state-overview ml-3">
+    <div class="col-lg-4 col-sm-6 mt-3">
+        <section class="panel">
+            <div class="symbol terques">
+                <a href="/Customer/Customers"><i class="icon-sitemap"></i></a>
+            </div>
+            <div class="value">
+                <h1>
+                    @Model.Customers.Count()
+                </h1>
+                <h4>Müşteri Sayısı</h4>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="col-lg-4 col-sm-6 mt-3">
+        <section class="panel">
+            <div class="symbol blue">
+                <a href=""><i class="icon-user"></i></a>
+            </div>
+            <div class="value">
+                <h1>
+                    @ViewBag.UsersCount
+                </h1>
+                <h4>Kullanıcı Sayısı</h4>
+            </div>
+        </section>
+    </div>
+</div>

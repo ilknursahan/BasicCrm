@@ -1,0 +1,41 @@
+﻿@model BasicCrm.MVCWebUI.Models.CostumerDetailViewModel
+@{
+    ViewData["Title"] = "CustomerDetail";
+}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Müşteri Adı</th>
+                <th scope="col">İlgili Kişi</th>
+                <th scope="col">Ünvan</th>
+                <th scope="col">Adres</th>
+                <th scope="col">Ülke</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Rolü</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>@Html.DisplayFor(modelItem => Model.Customer.CompanyName)</td>
+                <td>@Html.DisplayFor(modelItem => Model.Customer.ContactName)</td>
+                <td>@Html.DisplayFor(modelItem => Model.Customer.ContactTitle)</td>
+                <td>@Html.DisplayFor(modelItem => Model.Customer.Address)</td>
+                <td>@Html.DisplayFor(modelItem => Model.Customer.Country)</td>
+                <td>@Html.DisplayFor(modelItem => Model.Customer.Mail)</td>
+                <td>@ViewBag.CustomerDetail.CustomerType</td>
+
+
+
+
+
+            </tr>
+
+
+
+        </tbody>
+        
+    </table>
+            <a href="/Customer/Customers" class="btn btn-danger">İptal</a>
