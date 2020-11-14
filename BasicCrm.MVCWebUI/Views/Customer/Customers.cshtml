@@ -1,0 +1,46 @@
+﻿@model BasicCrm.MVCWebUI.Models.CustomerListViewModel
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Müşteri Adı</th>
+            <th scope="col">İlgili Kişi</th>
+            <th scope="col">Ünvan</th>
+            <th scope="col">Adres</th>
+            <th scope="col">Ülke</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Detay</th>
+            <th scope="col">Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => customer.CompanyName)</td>
+                <td>@Html.DisplayFor(modelItem => customer.ContactName)</td>
+                <td>@Html.DisplayFor(modelItem => customer.ContactTitle)</td>
+                <td>@Html.DisplayFor(modelItem => customer.Address)</td>
+                <td>@Html.DisplayFor(modelItem => customer.Country)</td>
+                <td>@Html.DisplayFor(modelItem => customer.Mail)</td>
+
+
+                <td><a class="btn btn-danger" href="/Customer/RemoveCustomer/@customer.CustomerID"><i class="icon-trash"></i></a></td>
+                <td><a class="btn btn-success" href="/Customer/CustomerDetail/@customer.CustomerID">Detay</a></td>
+
+                <td class="center"><a class="btn btn-primary" href="/Customer/UpdateCustomer/@customer.CustomerID"><i class="icon-pencil"></i></a></td>
+
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
